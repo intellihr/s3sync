@@ -6,6 +6,7 @@ to provide common s3 folder synchronisation usage. This is useful if you are alr
 The image can be pulled publicly through:
 
 - https://quay.io/repository/intellihr/s3sync (docker pull quay.io/intellihr/s3sync)
+- https://hub.docker.com/r/soloman1124/s3sync (docker pull soloman1124/s3sync)
 
 
 # Usage Instruction
