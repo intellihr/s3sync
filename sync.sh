@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 set -e
 
 : ${OPERATION:=pull}

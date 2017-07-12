@@ -15,6 +15,6 @@ RUN curl -o /opt/mantra -L https://github.com/pugnascotia/mantra/releases/downlo
 VOLUME /opt/data
 
 COPY sync.sh /opt/sync.sh
-COPY entrypoint.sh /opt/entrypoint.sh
+COPY run.sh /opt/run.sh
 
-CMD ["/opt/entrypoint.sh"]
+CMD ["/opt/run.sh"]
