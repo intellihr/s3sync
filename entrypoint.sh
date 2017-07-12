@@ -1,3 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-mantra $1 
+if [ -n "$CRON_SCHEDULE" ]; then
+  exec /opt/mantra "$CRON_SCHEDULE" /opt/sync.sh
+else
+  exec /opt/sync.sh
+fi
