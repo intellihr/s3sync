@@ -54,6 +54,7 @@ docker run --rm \
 -e OPERATION=push \
 -v <LOCAL_FOLDER>:/opt/data \
 quay.io/intellihr/s3sync:latest
+```
 
 * Change `LOCAL_FILE` to file/folder you want to upload to S3
 
