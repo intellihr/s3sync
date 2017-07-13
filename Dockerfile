@@ -3,7 +3,7 @@ MAINTAINER Soloman Weng "soloman.weng@intellihr.com.au"
 ENV REFRESHED_AT 2017-07-12
 
 RUN apk update
-RUN apk add python py-pip py-setuptools git ca-certificates curl
+RUN apk add python py-pip py-setuptools git ca-certificates curl jq
 RUN pip install python-dateutil
 
 RUN git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd
