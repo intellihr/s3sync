@@ -43,6 +43,8 @@ Please refert to http://docs.aws.amazon.com/cli/latest/userguide/cli-environment
 
 - *SYNC_OPTIONS* : include additional `s3cmd sync` options. e.g. `"--dry-run --exclude '*' --rinclude '^(dags|plugins)\/.*'"`. Please refer to http://s3tools.org/s3cmd-sync for the options support.
 
+- *USE_ECS_TASK_IAM_ROLE* : if you are running the command inside AWS ECS Task, set `true` to automatically load task IAM role credential.
+
 
 ## Sync from local to S3:
 
