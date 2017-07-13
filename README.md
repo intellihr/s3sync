@@ -41,6 +41,8 @@ Please refert to http://docs.aws.amazon.com/cli/latest/userguide/cli-environment
 `@hourly` -> sync files hourly
 `@every 1h30m10s` -> sync files every 1 hour, 30 minutes, 10 seconds
 
+- *SYNC_OPTIONS* : include additional `s3cmd sync` options. e.g. `"--dry-run --exclude '*' --rinclude '^(dags|plugins)\/.*'"`. Please refer to http://s3tools.org/s3cmd-sync for the options support.
+
 
 ## Sync from local to S3:
 
@@ -57,6 +59,7 @@ quay.io/intellihr/s3sync:latest
 ```
 
 * Change `LOCAL_FILE` to file/folder you want to upload to S3
+
 
 ## Sync from S3 to local:
 
@@ -86,6 +89,23 @@ docker run --rm \
 -e S3_KEY=envs/test \
 -e OPERATION=pull \
 -e CRON_SCHEDULE="@every 5m" \
+-v <LOCAL_FOLDER>:/opt/data \
+quay.io/intellihr/s3sync:latest
+```
+
+
+## Sync from S3 to local every 5 minutes with include pattern and dry run:
+
+```!bash
+docker run --rm \
+-e AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID> \
+-e AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> \
+-e AWS_DEFAULT_REGION=ap-southeast-2 \
+-e S3_BUCKET=test_bucket \
+-e S3_KEY=envs/test \
+-e OPERATION=pull \
+-e CRON_SCHEDULE="@every 5m" \
+-e SYNC_OPTIONS="--exclude '*' --rinclude '^(dags|plugins)\/.*' --dry-run" \
 -v <LOCAL_FOLDER>:/opt/data \
 quay.io/intellihr/s3sync:latest
 ```
